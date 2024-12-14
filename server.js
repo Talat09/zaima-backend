@@ -3,7 +3,7 @@ const sequelize = require("./config/database");
 
 const PORT = process.env.PORT || 3000;
 app.get("/", (req, res) => {
-  res.send("Hello World");
+  res.send({ message: "Hello World" });
 });
 app.listen(PORT, async () => {
   console.log(`Server running on port ${PORT}`);

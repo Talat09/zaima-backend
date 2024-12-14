@@ -11,6 +11,8 @@ exports.getTasks = async (req, res) => {
 
 exports.createTask = async (req, res) => {
   const { title, description } = req.body;
+  console.log(req.user.id);
+  console.log(title, description);
   try {
     const task = await Task.create({ title, description, UserId: req.user.id });
     res.status(201).json(task);
@@ -21,6 +23,7 @@ exports.createTask = async (req, res) => {
 
 exports.updateTask = async (req, res) => {
   const { id } = req.params;
+  console.log(id);
   const { title, description, status } = req.body;
   try {
     const task = await Task.findByPk(id);
